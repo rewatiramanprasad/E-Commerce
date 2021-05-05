@@ -7,22 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace First.Models.Account
+namespace First.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
-
-    public partial class User
+    public partial class order
     {
-        [Required(ErrorMessage = "Email is Required")]
-        public string Email { get; set; }
-        [Required(ErrorMessage = "Name is Required")]
-        public string Name { get; set; }
-        [Required(ErrorMessage = "Password is Required")]
-        public string Password { get; set; }
-        
-        public string Mobile { get; set; }
+        public int orderId { get; set; }
+        public string email { get; set; }
+        public string productname { get; set; }
+        public decimal productprice { get; set; }
+        public int productquantity { get; set; }
+        public string status { get; set; }
     }
 }

@@ -1,0 +1,77 @@
+﻿@model IEnumerable<First.Models.Product>
+
+@{
+    ViewBag.Title = "Product";
+}
+
+<h2>Product</h2>
+
+
+
+
+<style>
+    .card:hover {
+
+        box-shadow:-1px 9px 40px -12px #808080;
+    }
+</style>
+
+<div class="row">
+@foreach(var item in Model)
+{
+    <div class="card w-25 m-3">
+        <img src = "" class="card-img-top"/>
+        <div class="card-body">
+            <div class="card-title">
+                <h2 id="name" value="@item.productname">@Html.DisplayFor(modelItem => item.productname)</h2>
+            </div>
+            <div class="card-text">
+                <p >
+                    @Html.DisplayFor(  modelItem => item.productdetails)
+                </p>
+                <p>
+                    <b>
+                          Rs: @Html.DisplayFor(modelItem => item.productprice)
+                    </b>
+                </p>
+            </div>
+            <div class="btn btn-outline-primary">
+                @Html.ActionLink("Add to cart", "Details", new { id = item.productId })
+
+            </div>
+            
+
+            <input type="button" value="click me" onclick="submit(@item.productId, @item.productprice,'@item.productname')" />
+
+
+
+        </div>
+
+
+</div >
+}
+
+</div >
+<script>
+
+    function submit(id,price, name) {
+            
+        debugger
+        
+        var obj = {
+            Id:id,
+            Price:price,
+
+        }
+        submitform(obj);
+
+    };
+
+    function submitform(obj) {
+        $.ajax({
+        url:/home/})
+
+    }
+</script>
+
+

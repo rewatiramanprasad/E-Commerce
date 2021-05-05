@@ -1,0 +1,156 @@
+﻿@*@{
+        ViewBag.Title = "Payment";
+    }
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>paymennt method</title>
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css'>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
+        <link href="~/Content/StyleSheet1.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="heading">
+            <h1>Payment Method</h1>
+        </div>
+        <div class="header">
+            <h1>Please select your payment option</h1>
+
+            <div class="radio-container">
+                <input type="radio" id="windows" name="os" />
+                <label for="windows">credit card and debit card</label>
+
+
+
+                <br>
+                <button id="open">Add card</button>
+
+            </div>
+        </div>
+
+        <div class="modal-container" id="modal_container">
+            <div class="modal">
+                <div class="wrapper">
+                    <div class="payment">
+                        <div class="payment-logo">
+                            <p>p</p>
+                        </div>
+
+
+                        <h2>Payment Gateway</h2>
+                        <div class="form">
+                            <div class="card space icon-relative">
+                                <label class="label">Card holder:</label>
+                                <input type="text" class="input" placeholder="Coding Market">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="card space icon-relative">
+                                <label class="label">Card number:</label>
+                                <input type="text" class="input" data-mask="0000 0000 0000 0000" placeholder="Card Number">
+                                <i class="far fa-credit-card"></i>
+                            </div>
+                            <div class="card-grp space">
+                                <div class="card-item icon-relative">
+                                    <label class="label">Expiry date:</label>
+                                    <input type="text" name="expiry-data" class="input" data-mask="00 / 00" placeholder="00 / 00">
+                                    <i class="far fa-calendar-alt"></i>
+                                </div>
+                                <div class="card-item icon-relative">
+                                    <label class="label">CVC:</label>
+                                    <input type="text" class="input" data-mask="000" placeholder="000">
+                                    <i class="fas fa-lock"></i>
+                                </div>
+                            </div>
+
+                            <div class="btn">
+                                Pay
+                            </div>
+                            <br />
+                            <button id="close">
+                                Back
+                            </button>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="~/Scripts/JavaScript.js"></script>
+       <script>
+
+           const open = document.getElementById('open');
+           const close = document.getElementById('close');
+           const modal = document.getElementById('modal_container');
+
+           open.addEventListener('click', () => {
+               modal.classList.add('show');
+           });
+
+
+           close.addEventListener('click', () => {
+               modal.classList.remove('show');
+           });
+       </script>
+    </body>
+    </html>*@
+
+<script src="https://code.jquery.com/jquery.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<h2> Payment Gateway</h2>
+<br />
+<br />
+<div class="container-fluid bg-info">
+    <h3> Payment Method</h3>
+    <hr />
+
+    <input type="radio" id="windows" name="os" />
+    <label for="windows">Credit Card and Debit Card</label>
+    <br />
+    <button type="button" class="btn btn-outline-primary btn-lg" data-toggle="modal" data-target="#myModal">Add card</button>
+    <hr />
+    <input type="radio" id="windows" name="os" />
+    <label for="windows">Cash on Delivery(COD)</label>
+    <br/>
+    <button type="button" class="btn btn-outline-primary btn-lg" onclick="submit()">COD</button>
+    <br />
+
+    <!-- Modal -->
+    <div class="modal fade bootstrap" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Enter your card details:</h4>
+                </div>
+                <div class="modal-body bg-primary">
+
+                    <div class="form">
+
+                        <input type="text" maxlength="16" minlength="16" data-mask="0000 0000 0000 0000" placeholder="Card Number" class="form-control form-control-lg m-3">
+                        
+                        <input type="text" data-mask="00 / 00" id="inputExpDate" minlength="5"maxlength="5" placeholder="MM / YY" class="form-control form-control-lg m-3">
+                        <input type="text" data-mask="000" maxlength="3"minlength="3" placeholder="cvv" class="form-control form-control-lg m-3">
+
+                    </div>
+
+                </div>
+                <div class="modal-footer bg-primary">
+                    <button type="button" class="btn btn-outline-primary" data-dismiss="modal" onclick="submit()">Submit</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script >
+    function submit() {
+        alert("Thankyou for ordering ");
+    };
+
+</script>

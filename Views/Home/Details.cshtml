@@ -1,0 +1,58 @@
+﻿@model First.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details of Items</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <table class="dl-horizontal bg-info">
+        <tr class="m-3">
+            <td class="bg-primary">
+                @*@Html.DisplayNameFor(model => model.productname)*@
+                Product Name:
+            </td>
+
+            <td>
+                &nbsp;&nbsp;  @Html.DisplayFor(model => model.productname)
+            </td>
+        </tr>
+        <tr class="m-3">
+            <td class="bg-primary" align="left">
+                @*@Html.DisplayNameFor(model => model.productdetails)*@
+                Product Details:  
+            </td>
+
+            <td>
+                &nbsp;&nbsp;  @Html.DisplayFor(model => model.productdetails)
+            </td>
+        </tr>
+        <tr class="m-3">
+        <td class="bg-primary" align="left">
+            @*@Html.DisplayNameFor(model => model.productprice)*@ 
+            Product Price: 
+        </td>
+
+        <td>
+            &nbsp;&nbsp; Rs: @Html.DisplayFor(model => model.productprice)
+        </td>
+        </tr>
+
+    </table>
+    <hr />
+    <a href="~/Home/Payment" class="btn btn-outline-primary center-block">
+
+        Buy
+    </a>
+    
+</div>
+<br/>
+<br/>
+<p>
+   
+    @Html.ActionLink("Back to ProductList", "Product")
+</p>
+
